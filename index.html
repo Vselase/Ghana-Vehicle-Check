@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vehicle Check GH — Concept Prototype</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <div class="concept-bar">CONCEPT PROTOTYPE — <b>not a live government service</b> · sample data only · built for pitch
+    review</div>
+
+  <header>
+    <div class="gov-strip">
+      <span>Republic of Ghana</span>
+      <span>Driver &amp; Vehicle Licensing Authority · Concept</span>
+    </div>
+    <div class="nav">
+      <div class="brand">
+        <svg class="star" viewBox="0 0 100 100">
+          <polygon points="50,4 61,37 96,37 68,58 79,92 50,71 21,92 32,58 4,37 39,37" fill="#EEEBDD" stroke="#C6A75B"
+            stroke-width="2" />
+        </svg>
+        <div class="brand-text">
+          <div class="t1">Vehicle&nbsp;Check GH</div>
+          <div class="t2">Roadworthy &amp; Insurance Registry</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#lookup">Lookup</a>
+        <a href="#how">How it works</a>
+        <a href="#sources">Data sources</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero" id="lookup">
+    <div class="guilloche"></div>
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">One plate. Two questions.</div>
+        <h1>Is it roadworthy. Is it <em>insured</em>.</h1>
+        <p class="lede">Enter any Ghanaian registration number to check current DVLA roadworthy certificate status and
+          NIC-verified motor insurance in one look — the same way UK drivers check MOT and insurance history today.</p>
+        <div class="trust-row">
+          <div><strong>16</strong>Regions covered</div>
+          <div><strong>&lt;2s</strong>Average lookup time</div>
+          <div><strong>DVLA + NIC</strong>Source registries</div>
+        </div>
+      </div>
+
+      <div class="lookup-card">
+        <div class="lookup-label">Enter registration number</div>
+        <div class="plate">
+          <div class="plate-flag">
+            <svg viewBox="0 0 100 100">
+              <polygon points="50,10 60,38 90,38 65,56 74,86 50,68 26,86 35,56 10,38 40,38" fill="#000" />
+            </svg>
+          </div>
+          <div class="plate-input-wrap">
+            <input id="plateInput" type="text" placeholder="GR 2451-24" maxlength="12" autocomplete="off"
+              aria-label="Vehicle registration number">
+          </div>
+          <button class="check-btn" id="checkBtn">Check vehicle</button>
+        </div>
+        <div class="sample-row">
+          <span>Try a sample:</span>
+          <span class="sample-chip" data-plate="GR 2451-24">GR 2451-24</span>
+          <span class="sample-chip" data-plate="AS 8890-22">AS 8890-22</span>
+          <span class="sample-chip" data-plate="GT 1123-23">GT 1123-23</span>
+          <span class="sample-chip" data-plate="CR 9902-25">CR 9902-25</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="result-wrap">
+    <div class="cert" id="certCard"></div>
+    <div class="not-found" id="notFound">
+      <h3>No record found for this plate</h3>
+      <p>We couldn't match that registration in the demo registry. In production this would query DVLA's live vehicle
+        database directly — try one of the sample plates above to see a full result.</p>
+    </div>
+  </div>
+
+  <section class="section" id="how">
+    <div class="section-head">
+      <div class="eyebrow">How it works</div>
+      <h2>Built on registries that already exist</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="num">01</div>
+        <h3>Enter the plate</h3>
+        <p>Any officer, insurer, buyer, or citizen types in a registration number — no login or account required for a
+          basic check.</p>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <h3>We query two registries</h3>
+        <p>The DVLA roadworthy certificate database and the National Insurance Commission's motor insurance database are
+          checked in real time.</p>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <h3>One clear result</h3>
+        <p>A single certificate-style result shows roadworthy status, insurance status, and expiry dates — flagged
+          clearly if either has lapsed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="integrations" id="sources">
+    <div class="section">
+      <div class="section-head">
+        <div class="eyebrow">Data sources</div>
+        <h2>Two registries, one answer</h2>
+        <p>Ghana already collects this data — it simply isn't joined into a single public-facing lookup. This tool sits
+          on top of existing systems rather than replacing them.</p>
+      </div>
+      <div class="source-grid">
+        <div class="source-card">
+          <div class="tag">Source</div>
+          <h4>DVLA Roadworthy Registry</h4>
+          <p>Certificate issue and expiry data from licensed vehicle testing stations nationwide.</p>
+        </div>
+        <div class="source-card">
+          <div class="tag">Source</div>
+          <h4>NIC Motor Insurance Database</h4>
+          <p>Active policy verification across licensed underwriters, per the NIC's existing reporting mandate.</p>
+        </div>
+        <div class="source-card">
+          <div class="tag">Use case</div>
+          <h4>Police &amp; MTTD checkpoints</h4>
+          <p>Instant field verification during routine stops, replacing manual document inspection.</p>
+        </div>
+        <div class="source-card">
+          <div class="tag">Use case</div>
+          <h4>Used-car buyers</h4>
+          <p>Public due-diligence check before a private vehicle purchase, similar to gov.uk's MOT history tool.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <div class="fbrand">Vehicle Check GH</div>
+      <div>Concept prototype prepared for review · sample data only</div>
+    </div>
+    <div class="disclaimer">This is an unofficial concept built to demonstrate feasibility. It is not affiliated with or
+      endorsed by DVLA, NIC, or the Government of Ghana, and displays no real vehicle records.</div>
+  </footer>
+
+  <script src="js/app.js"></script>
+
+</body>
+
+</html>
